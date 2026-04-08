@@ -1,0 +1,7 @@
+def is_lowercase_latin_palindrome(s):
+    lowercase_latin = []
+    for char in s:
+        if 'a' <= char <= 'z':
+            lowercase_latin.append(char)
+    
+        return lowercase_latin == lowercase_latin[::-1]
