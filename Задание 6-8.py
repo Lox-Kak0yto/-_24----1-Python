@@ -40,3 +40,12 @@ def find_longest_digit_sequence(text):
             rationals.append(Fraction(float(num_str)).limit_denominator())
     
     return min(rationals)
+
+value = int(input("Какую задачу вы хотите решить?\n"))
+text = input()
+if value == 1:
+    print(find_max_float(text))
+elif value == 9:
+    print(find_min_rational(text))
+elif value == 18:
+    print(find_longest_digit_sequence(text))
