@@ -1,0 +1,19 @@
+import re
+from fractions import Fraction
+
+def find_min_rational(text):
+    pattern = r'-?\d+/\d+|-?\d+\.\d+|-?\.\d+|-?\d+'
+    
+    matches = re.findall(pattern, text)
+    
+    if not matches:
+        return None
+    
+    rationals = []
+    for num_str in matches:
+        if '/' in num_str:
+            rationals.append(Fraction(num_str))
+        else:
+            rationals.append(Fraction(float(num_str)).limit_denominator())
+    
+    return min(rationals)
