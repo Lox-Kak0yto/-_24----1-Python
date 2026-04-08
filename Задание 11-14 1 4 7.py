@@ -37,3 +37,27 @@ def sort_by_ascii_deviation(strings):
     
     strings.sort(key=deviation)
     return strings
+    
+
+def sort_by_vowel_consonant_combinations(strings):
+    vowels = set('аеёиоуыэюяaeiou')
+    consonants = set('бвгджзйклмнпрстфхцчшщbcdfghjklmnpqrstvwxyz')
+    
+    def count_combinations(text):
+        text_lower = text.lower()
+        vc_count = 0  # гласная-согласная
+        cv_count = 0  # согласная-гласная
+        
+        for i in range(len(text_lower) - 1):
+            first = text_lower[i]
+            second = text_lower[i + 1]
+            
+            if first in vowels and second in consonants:
+                vc_count += 1
+            elif first in consonants and second in vowels:
+                cv_count += 1
+        
+        return vc_count - cv_count
+    
+    strings.sort(key=count_combinations)
+    return strings
