@@ -17,3 +17,25 @@ def sum_of_prime_divisors(n):
             prime_divisors_sum += i
     
     return prime_divisors_sum
+
+def count_odd_digits_greater_than_3(n):
+    "Функия 2"
+    n = abs(n)
+    
+    if n == 0:
+        return 0
+    
+    count = 0
+    while n > 0:
+        digit = n % 10
+        if digit % 2 == 1 and digit > 3:
+            count += 1
+        n //= 10
+    
+    return count
+
+
+            product *= divisor
+            found = True
+    
+    return product if found else 0
