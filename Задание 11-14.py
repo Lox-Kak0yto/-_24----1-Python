@@ -81,18 +81,13 @@ def sort_by_vowel_consonant_combinations(strings):
     strings.sort(key=average_mirror_triples)
     return strings
 
-strings = ["Привет мир", "Python", "Ааа Ббб", "Тест"]
-result = sort_by_consonant_vowel_difference(strings)
-print(result)
-
-strings = ["abc", "xyz", "123", "Hello"]
-result = sort_by_ascii_deviation(strings)
-print(result)
-
-strings = ["abc", "aba", "hello", "world"]
-result = sort_by_vowel_consonant_combinations(strings)
-print(result)
-
-strings = ["ada", "abc", "ababa", "hello", "xaxbx"]
-result = sort_by_mirror_triples(strings)
-print(result)
+value = int(input("Какую задачу вы хотите решить?\n"))
+text = input()
+if value == 1:
+    print(sort_by_consonant_vowel_difference(text)) 
+elif value == 4:
+    print(sort_by_ascii_deviation(text)) 
+elif value == 7:
+    print(sort_by_vowel_consonant_combinations(text))
+elif value == 10:
+    print(sort_by_mirror_triples(text))
