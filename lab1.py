@@ -34,3 +34,33 @@ def count_odd_digits_greater_than_3(n):
         n //= 10
     
     return count
+
+def product_of_divisors_with_digit_sum_less_than_original(n):
+    "Функия 3"
+    if n == 0:
+        return 0
+    
+    def digit_sum(num):
+        num = abs(num)
+        total = 0
+        while num > 0:
+            total += num % 10
+            num //= 10
+        return total
+    
+    original_sum = digit_sum(n)
+    
+    divisors = []
+    for i in range(1, abs(n) + 1):
+        if n % i == 0:
+            divisors.append(i)
+    
+    product = 1
+    found = False
+    
+    for divisor in divisors:
+        if digit_sum(divisor) < original_sum:
+            product *= divisor
+            found = True
+    
+    return product if found else 0
