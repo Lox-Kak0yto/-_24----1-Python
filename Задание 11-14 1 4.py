@@ -17,3 +17,23 @@ def sort_by_consonant_vowel_difference(strings):
     
     strings.sort(key=count_vowels_consonants)
     return strings
+
+
+def sort_by_ascii_deviation(strings):
+    if not strings:
+        return strings
+    
+    def get_ascii_avg(text):
+        if not text:
+            return 0
+        total = sum(ord(char) for char in text)
+        return total / len(text)
+    
+    first_avg = get_ascii_avg(strings[0])
+    
+    def deviation(text):
+        avg = get_ascii_avg(text)
+        return (avg - first_avg) ** 2
+    
+    strings.sort(key=deviation)
+    return strings
