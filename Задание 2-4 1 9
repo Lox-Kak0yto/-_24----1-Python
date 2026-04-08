@@ -16,3 +16,11 @@ def is_lowercase_latin_palindrome(s):
             lowercase_latin.append(char)
     
         return lowercase_latin == lowercase_latin[::-1]
+
+
+import re
+def find_dates(text):
+    pattern = r'\b\d{1,2}\.\d{1,2}\.\d{4}\b'
+    
+    dates = re.findall(pattern, text)
+    return dates
