@@ -12,8 +12,7 @@ def is_lowercase_latin_palindrome(s):
     for char in s:
         if 'a' <= char <= 'z':
             lowercase_latin.append(char)
-    
-        return lowercase_latin == lowercase_latin[::-1]
+    return lowercase_latin == lowercase_latin[::-1]
 
 
 def find_dates(text):
@@ -21,3 +20,12 @@ def find_dates(text):
     
     dates = re.findall(pattern, text)
     return dates
+
+value = int(input("Какую задачу вы хотите решить?\n"))
+text = input()
+if value == 1:
+    print(count_russian_chars(text)) 
+elif value == 9:
+    print(is_lowercase_latin_palindrome(text)) 
+elif value == 18:
+    print(find_dates(text))
