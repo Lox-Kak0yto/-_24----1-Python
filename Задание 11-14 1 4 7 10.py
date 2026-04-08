@@ -61,3 +61,22 @@ def sort_by_vowel_consonant_combinations(strings):
     
     strings.sort(key=count_combinations)
     return strings
+
+    
+    def sort_by_mirror_triples(strings):
+    def count_mirror_triples(text):
+        count = 0
+        for i in range(len(text) - 2):
+            if text[i] == text[i + 2]:
+                count += 1
+        return count
+    
+    def average_mirror_triples(text):
+        if len(text) < 3:
+            return 0
+        triple_count = count_mirror_triples(text)
+        total_triples = len(text) - 2
+        return triple_count / total_triples if total_triples > 0 else 0
+    
+    strings.sort(key=average_mirror_triples)
+    return strings
